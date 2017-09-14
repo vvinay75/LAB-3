@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="" data-ng-app="GoogleDirection">
+<head>
+    <title>MashUp Application</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Awesome videos!" />
+
+    <link rel="stylesheet" href="assets/css/stylesheet.css">
+    <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
+    <meta charset="utf-8">
+
+    <style>
+        /* Optional: Makes the sample page fill the window. */
+        #description {
+            font-family: Roboto;
+            font-size: 15px;
+            font-weight: 300;
+        }
+        #infowindow-content .title {
+            font-weight: bold;
+        }
+        #infowindow-content {
+            display: none;
+        }
+        .pac-card {
+            margin: 10px 10px 0 0;
+            border-radius: 2px 0 0 2px;
+            box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            outline: none;
+            box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+            background-color: #fff;
+            font-family: Roboto;
+        }
+        #pac-container {
+            padding-bottom: 12px;
+            margin-right: 12px;
+        }
+        .pac-controls {
+            display: inline-block;
+            padding: 5px 11px;
+        }
+        .pac-controls label {
+            font-family: Roboto;
+            font-size: 13px;
+            font-weight: 300;
+        }
+        #pac-input {
+            background-color: #e4b9b9;
+            font-family: Calibri;
+            font-size: 30px;
+            font-weight: 300;
+            margin-left: 12px;
+            padding: 0 15px 0 18px;
+            text-overflow: ellipsis;
+            width: 500px;
+        }
+        #pac-input:focus {
+            border-color: #4d90fe;
+        }
+        #title {
+            color: #843534;
+            background-color: #843534;
+            font-size: 28px;
+            font-weight: 510;
+            padding: 8px 14px;
+        }
+        .header h1 {
+            font-size: 2.8em;
+            font-family: Calibri;
+            font-weight: 120;
+            text-align: center;
+            color: #262626;
+        }
+        .col2 {
+            overflow: hidden;
+            float: center;
+            width: 68%;
+            left: 2%;
+        }
+        .searchbuttn {
+            background-color: #5e5e5e;
+            padding: 14px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 4px 3px;
+            cursor: pointer;
+            border-radius: 3px;
+            border: none;
+            color: white;
+        }
+        .transbuttn {
+            background-color: #843534;
+            padding: 14px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 14px;
+            margin: 20px 12px;
+            cursor: pointer;
+            border-radius: 3px;
+            border: none;
+            color: white;
+        }
+        .col1 {
+            overflow: hidden;
+            float: center;
+            text-align: left;
+            width: 25%;
+            left: 15%;
+            background-color: whitesmoke;
+        }
+        .dropdown-content {
+            background-color: #0f0f0f;
+            min-width: 180px;
+            padding: 14px 18px;
+            color: white;
+        }
+        #outerdiv {
+            width: 90%;
+            height: 90%;
+            position:fixed;
+            text-align:center;
+        }
+        html,body{
+            background-image: url("img.jpg");
+        }
+
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="app.js"></script>
+    <script src="https://apis.google.com/js/client.js?onload=init"></script>
+    <script src="translate.js"></script>
+</head>
+
+<body ng-app="Translate">
+<div class="header"><h1>MashUp Application</h1></div>
+<div ng-controller="Translatecontroller">
+    <div class="row" align="center">
+        <form action="#">
+            <input type="text" id="pac-input" placeholder="Search Videos" class="form-control">
+            <button class="searchbuttn">Search</button>
+            <select name="to" id="lang" class="dropdown-content">
+                <option selected disabled>Choose a language to translate</option>
+                <option value="te">Telugu </option>
+                <option value="ar">Arabic</option>
+                <option value="hi">Hindi</option>
+                <option value="zh">Chinese</option>
+                <option value="es">Spanish</option>
+            </select>
+                    <button class="transbuttn" ng-click="translate()" >Click here to translate</button>
+                <p><h2><b>Translated word:&nbsp&nbsp{{output}}</b></h2></p>
+            <div class="col2">
+                <div id="results"></div>
+            </div>
+        </form>
+
+</div>
+</body>
+</html>
